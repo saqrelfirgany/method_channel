@@ -14,11 +14,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future getBatteryLevel() async {
     final arguments = {'name': 'saqrelfirgany'};
-    dynamic newBatteryLevel = await batteryChannel.invokeListMethod('getBatteryLevel', arguments);
+    // Use invokeMethod instead of invokeListMethod
+    dynamic newBatteryLevel = await batteryChannel.invokeMethod('getBatteryLevel', arguments);
     setState(() {
       batteryLevel = '$newBatteryLevel';
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
